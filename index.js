@@ -1,18 +1,16 @@
-const epxress = require("express");
+const express = require('express');
 
-const app = epxress();
+const app = express()
+const PORT = 8000
 
-app.use(epxress.urlencoded({ extended: false }));
-app.use(epxress.json());
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
 
-app.get("/api", (req, res) => {
-  res.send("hello world");
-});
+app.get('/about', (req, res) => {
+  res.send('About route 🎉 ')
+})
 
-app.get("/api/users", (req, res) => {
-  res.send("users");
-});
-
-app.listen(5000, () => {
-  console.log("server is running on port 50000");
-});
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+})
